@@ -59,7 +59,8 @@ const Auth = () => {
 
         const { username, password, phoneNumber, avatarURL } = form;
 
-        const URL = 'http://localhost:5000/auth';
+        // const URL = 'http://localhost:5000/auth';
+        const URL = 'https://buddytalk.onrender.com/auth';
         // const URL = 'https://medical-pager.herokuapp.com/auth';
 
       try{
