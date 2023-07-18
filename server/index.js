@@ -50,6 +50,9 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     const { message, user: sender, type, members } = req.body;
+    console.log("Hello type");
+    console.log(type);
+    console.log(members);
     
     if(type === 'message.new') {
         console.log("hello mem");
