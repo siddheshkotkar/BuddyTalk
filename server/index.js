@@ -50,8 +50,10 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     const { message, user: sender, type, members } = req.body;
-
+    
     if(type === 'message.new') {
+        console.log("hello mem");
+        console.log(members);
         members
             .filter((member) => member.user_id !== sender.id)
             .forEach(({ user }) => {
