@@ -55,7 +55,10 @@ app.post('/', (req, res) => {
         members
             .filter((member) => member.user_id !== sender.id)
             .forEach(({ user }) => {
+                console.log("Hello");
+                console.log(user);
                 if(!user.online) {
+                    
                     twilioClient.messages.create({
                         body: `You have a new message from ${message.user.fullName} - ${message.text}`,
                         messagingServiceSid: messagingServiceSid,
