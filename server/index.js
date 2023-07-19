@@ -50,18 +50,14 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     const { message, user: sender, type, members } = req.body;
-    console.log("Hello type");
-    console.log(type);
-    console.log(members);
+    
     
     if(type === 'message.new') {
-        console.log("hello mem");
-        console.log(members);
+        
         members
             .filter((member) => member.user_id !== sender.id)
             .forEach(({ user }) => {
-                console.log("Hello");
-                console.log(user);
+                
                 if(!user.online) {
                     
                     twilioClient.messages.create({
