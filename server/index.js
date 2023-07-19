@@ -53,13 +53,13 @@ app.post('/', (req, res) => {
     
     
     if(type === 'message.new') {
-        
+        console.log("Sending message");
         members
             .filter((member) => member.user_id !== sender.id)
             .forEach(({ user }) => {
-                
+                console.log("inside..");
                 if(!user.online) {
-                    
+                    console.log(user.phoneNumber);
                     twilioClient.messages.create({
                         body: `You have a new message from ${message.user.fullName} - ${message.text}`,
                         messagingServiceSid: messagingServiceSid,
