@@ -60,12 +60,17 @@ app.post('/', (req, res) => {
                 console.log("inside..");
                 if(!user.online) {
                     console.log(user.phoneNumber);
-                    twilioClient.messages.create({
-                        body: `You have a new message from ${message.user.fullName} - ${message.text}`,
-                        messagingServiceSid: messagingServiceSid,
-                        to: user.phoneNumber
+                     client.messages.create({
+                         body: `You have a new message from ${message.user.fullName} - ${message.text}`,
+                         messagingServiceSid: messagingServiceSid,
+                        to: user.phoneNumber,
+                           from: '+19894496457'
                     })
-                        .then(() => console.log('Message sent!'))
+                  
+
+                    
+                    
+                         .then(() => console.log('Message sent!'))
                         .catch((err) => console.log(err));
                 }
             })
